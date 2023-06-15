@@ -14,6 +14,7 @@ public class Dragon : MonoBehaviour
     int angle;
     int maxAngle = 25;
     int minAngle = -20;
+    public Score score;
     void Start()
     {
         //GetComponent = Atanan deðerin rigidbody2d özelliðini _rb'ye atar
@@ -49,5 +50,13 @@ public class Dragon : MonoBehaviour
         }
         transform.rotation = Quaternion.Euler(0, 0, angle);
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Obstacle"))
+        {
+            score.Scored();
+        }
     }
 }
