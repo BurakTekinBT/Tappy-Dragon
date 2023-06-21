@@ -10,7 +10,6 @@ public class Dragon : MonoBehaviour
     //public float speed;
     [SerializeField]
     private float _speed;
-
     int angle;
     int maxAngle = 25;
     int minAngle = -20;
@@ -54,6 +53,7 @@ public class Dragon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.CompareTag("Obstacle"))
         {
             score.Scored();
