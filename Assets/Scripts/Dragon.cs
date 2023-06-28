@@ -11,16 +11,27 @@ public class Dragon : MonoBehaviour
     [SerializeField]
     private float _speed;
     int angle;
-    int maxAngle = 25;
-    int minAngle = -20;
+    int maxAngle = 20;
+    int minAngle = -40;
     public Score score;
+    bool touchedGround = false; //Yere deðil deðmediðini kontrol etmemiz gerekiyor
+    public GameManager gameManager;
+    public Sprite dragonDied;
+    SpriteRenderer sp;
+    Animator anim;
+    public ObstacleSpawner obstacleSpawner;
+
   
     void Start()
     {
         //GetComponent = Atanan deðerin rigidbody2d özelliðini _rb'ye atar
         _rb = GetComponent<Rigidbody2D>();
         //_rb.gravityScale = 0; yerçekimini 0 larýz nesne havada asýlý kalýr
-        _rb.velocity = new Vector2(_rb.velocity.x, 7f); //x i deðiþtirmedik y yi deðiþtirdik
+        //_rb.velocity = new Vector2(_rb.velocity.x, 7f); //x i deðiþtirmedik y yi deðiþtirdik
+        _rb.gravityScale = 0;
+
+        sp =GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
 
     }
 
@@ -37,10 +48,26 @@ public class Dragon : MonoBehaviour
 
     void DragonFly()
     {
-        _rb.velocity = Vector2.zero; // her bastýðýmýzda eþ düzeyde zýplasýn diye 
-        if (Input.GetMouseButtonDown(0) && GameManager.gameOver == false) //sol tuþ 0,  mobil cihazlarda ise dokunma
+      
+       
+        if (Input.GetMouseButtonDown(0) && GameManager.gameOver==false) //sol tuþ 0,  mobil cihazlarda ise dokunma
         {
-            _rb.velocity = new Vector2(_rb.velocity.x, _speed); //x i deðiþtirmedik y yi deðiþtirdik
+            if (GameManager.gameStarted == false)
+            {
+                _rb.gravityScale = 5f;
+                _rb.velocity = Vector2.zero;
+                _rb.velocity = new Vector2(_rb.velocity.x, _speed);
+                obstacleSpawner.InstantiateObstacle();
+                gameManager.GameHasStarted();
+            }
+            else
+            {
+                _rb.velocity = Vector2.zero; // her bastýðýmýzda eþ düzeyde zýplasýn diye 
+                _rb.velocity = new Vector2(_rb.velocity.x, _speed); //x i deðiþtirmedik y yi deðiþtirdik
+
+            }
+
+
         }
     }
 
@@ -51,18 +78,23 @@ public class Dragon : MonoBehaviour
         {
             if (angle <= maxAngle)
             {
-                angle += 3;
+                angle += 4;
             }
 
         }
-        else if (_rb.velocity.y <= 0)
+        else if (_rb.velocity.y <= -2.5f)
         {
             if (angle > minAngle)
             {
-                angle = angle - 1;
+                angle = angle - 2;
             }
         }
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        if(touchedGround == false)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, angle); //  ? 
+        }
+        
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -74,7 +106,7 @@ public class Dragon : MonoBehaviour
         }
         else if (collision.CompareTag("Column"))
         {
-            //game over
+            gameManager.GameOver();
         }
     }
 
@@ -82,17 +114,21 @@ public class Dragon : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("Dragon Died!");
-            //game over
             if(GameManager.gameOver == false)
             {
-                //game over
+                gameManager.GameOver();
+                GameOver();
             }
-            else
-            {
-                //gmae over
-            }
+
         }
         
+    }
+
+    void GameOver()
+    {
+        touchedGround = true;
+        sp.sprite = dragonDied; //Game Over olunca ejderhanýn spriteýnýn deðiþmesi lazým fakat animasyon devam ederken sprite deðiþtiremeyiz.
+        anim.enabled = false;
+        transform.rotation = Quaternion.Euler(0, 0, -90); ;
     }
 }

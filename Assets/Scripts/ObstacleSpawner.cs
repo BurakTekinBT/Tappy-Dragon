@@ -12,6 +12,8 @@ public class ObstacleSpawner : MonoBehaviour
     public float minY;
     float randomY;
 
+    
+
     public void InstantiateObstacle() //onje oluþturacak sýnýf
     {
         randomY = Random.Range(minY, maxY);
@@ -29,13 +31,19 @@ public class ObstacleSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
 
-        if(timer >= maxTime)
+        if(GameManager.gameOver == false && GameManager.gameStarted==true)
         {
-            InstantiateObstacle();
-            timer = 0;
+
+            timer += Time.deltaTime; 
+
+            if (timer >= maxTime)
+            {
+                InstantiateObstacle();
+                timer = 0;
+            }
         }
+
         
     }
 }
