@@ -16,7 +16,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     public void InstantiateObstacle() //onje oluþturacak sýnýf
     {
-        randomY = Random.Range(minY, maxY);
+       
         GameObject newObstacle = Instantiate(obstacle); //neyi oluþuturacaðýz
 
         newObstacle.transform.position = new Vector2(transform.position.x, randomY); 
@@ -39,6 +39,7 @@ public class ObstacleSpawner : MonoBehaviour
 
             if (timer >= maxTime)
             {
+                randomY = Random.Range(minY, maxY);
                 InstantiateObstacle();
                 timer = 0;
             }

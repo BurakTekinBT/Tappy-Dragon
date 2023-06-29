@@ -20,7 +20,7 @@ public class Dragon : MonoBehaviour
     SpriteRenderer sp;
     Animator anim;
     public ObstacleSpawner obstacleSpawner;
-
+    [SerializeField] private AudioSource fly, hit, point;
   
     void Start()
     {
@@ -52,6 +52,7 @@ public class Dragon : MonoBehaviour
        
         if (Input.GetMouseButtonDown(0) && GameManager.gameOver==false) //sol tuþ 0,  mobil cihazlarda ise dokunma
         {
+            fly.Play();
             if (GameManager.gameStarted == false)
             {
                 _rb.gravityScale = 5f;
@@ -103,10 +104,14 @@ public class Dragon : MonoBehaviour
         if (collision.CompareTag("Obstacle"))
         {
             score.Scored();
+            point.Play();
         }
-        else if (collision.CompareTag("Column"))
+        else if (collision.CompareTag("Column") && GameManager.gameOver == false)
         {
+ 
             gameManager.GameOver();
+            GameOver();
+            FishDieEffect();
         }
     }
 
@@ -118,10 +123,16 @@ public class Dragon : MonoBehaviour
             {
                 gameManager.GameOver();
                 GameOver();
+                FishDieEffect();
             }
 
         }
         
+    }
+
+    void FishDieEffect()
+    {
+        hit.Play(); 
     }
 
     void GameOver()
