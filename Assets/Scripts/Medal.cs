@@ -15,15 +15,15 @@ public class Medal : MonoBehaviour
 
         int gameScore = GameManager.gameScore;
 
-        if (gameScore >= 0 && gameScore <=1)
+        if (gameScore >= 0 && gameScore <=3)
         {
             img.sprite = metalMedal;
         }
-        else if(gameScore > 1 && gameScore<=2)
+        else if(gameScore > 3 && gameScore<=5)
         {
             img.sprite = metalMedal;
         }
-        else if (gameScore > 2 && gameScore <= 3)
+        else if (gameScore > 5 && gameScore <= 10)
         {
             img.sprite = silverMedal;
         }

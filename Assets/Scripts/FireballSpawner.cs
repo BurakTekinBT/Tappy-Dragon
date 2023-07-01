@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
-public class ObstacleSpawner : MonoBehaviour
+public class FireballSpawner : MonoBehaviour
 {
     public GameObject obstacle;
 
@@ -18,12 +20,13 @@ public class ObstacleSpawner : MonoBehaviour
 
         GameObject newObstacle = Instantiate(obstacle); //neyi oluþuturacaðýz
 
-        newObstacle.transform.position = new Vector2(transform.position.x, randomY); 
+        newObstacle.transform.position = new Vector2(transform.position.x, randomY);
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        
         //InstantiateObstacle();
     }
 
@@ -31,20 +34,20 @@ public class ObstacleSpawner : MonoBehaviour
     void Update()
     {
 
-        if(GameManager.gameOver == false && GameManager.gameStarted==true)
+        if (GameManager.gameOver == false && GameManager.gameStarted == true)
         {
 
-            timer += Time.deltaTime; 
+            timer += Time.deltaTime;
 
             if (timer >= maxTime)
-                
+
             {
                 InstantiateObstacle();
                 timer = 0;
             }
         }
 
-        
+
     }
 }
 //sürekli obje üretip yok etmek saðlýklý deðil farklý yöntem tercih edilir objectpool gibi

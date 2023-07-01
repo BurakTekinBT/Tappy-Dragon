@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e0f84d52f5380e34fa557ed3116d0c20
+guid: 3a578426f29846e468ee387cb3363d57
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -37,18 +37,18 @@ TextureImporter:
     aniso: 1
     mipBias: 0
     wrapU: 1
-    wrapV: 0
-    wrapW: 0
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 45, y: 73, z: 1076, w: 1353}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -62,8 +62,8 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
-  cookieLightType: 1
+  applyGammaDecoding: 0
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -90,19 +90,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
-  - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -114,19 +102,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Tizen
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
-  - serializedVersion: 3
-    buildTarget: Server
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -151,18 +127,79 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: zemin_39
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 68
+        width: 1228
+        height: 563
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b06b1ef78cc5ba94391d13aaad78a66c
+      internalID: -213468750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      zemin_26: -606636653
+      zemin_38: 398572826
+      zemin_23: 68142170
+      zemin_16: -1150519686
+      zemin_32: 1591695658
+      zemin_37: -239647091
+      zemin_3: 1816436709
+      zemin_13: -856660777
+      zemin_15: -1074592730
+      zemin_36: 16816009
+      zemin_6: 1317467191
+      zemin_18: -1002099481
+      zemin_9: -1692916120
+      zemin_21: 710517976
+      zemin_22: -1222874676
+      zemin_17: -1443994684
+      zemin_35: -863099438
+      zemin_7: 2122541337
+      zemin_12: 1566605855
+      zemin_29: 1455400944
+      zemin_14: -1916778304
+      zemin_8: 1699758693
+      zemin_4: 1057990139
+      zemin_20: 718721906
+      zemin_25: -1324286741
+      zemin_31: -1331512568
+      zemin_19: -1977887453
+      zemin_2: 758735517
+      zemin_28: -634934544
+      zemin_34: -639166595
+      zemin_39: -213468750
+      zemin_11: 1742550421
+      zemin_0: -2147051394
+      zemin_1: -1459657338
+      zemin_5: -1085014808
+      zemin_30: -1701254248
+      zemin_10: 919362792
+      zemin_24: 651456728
+      zemin_33: 1637772768
+      zemin_27: 871132001
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

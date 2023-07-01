@@ -106,7 +106,7 @@ public class Dragon : MonoBehaviour
             score.Scored();
             point.Play();
         }
-        else if (collision.CompareTag("Column") && GameManager.gameOver == false)
+        else if ((collision.CompareTag("Column") || collision.CompareTag("Fireball")) && GameManager.gameOver == false)
         {
  
             gameManager.GameOver();
@@ -140,6 +140,6 @@ public class Dragon : MonoBehaviour
         touchedGround = true;
         sp.sprite = dragonDied; //Game Over olunca ejderhanýn spriteýnýn deðiþmesi lazým fakat animasyon devam ederken sprite deðiþtiremeyiz.
         anim.enabled = false;
-        transform.rotation = Quaternion.Euler(0, 0, -90); ;
+        transform.rotation = Quaternion.Euler(0, 0, -180); ;
     }
 }
