@@ -1,2 +1,2 @@
-# TappyFish
-2D Tappy Fish game with Unity Engine
+# Tappy Dragon Game
+2D Tappy Dragon game with Unity Engine
