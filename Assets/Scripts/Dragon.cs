@@ -111,7 +111,7 @@ public class Dragon : MonoBehaviour
  
             gameManager.GameOver();
             GameOver();
-            FishDieEffect();
+            DragonDieEffect();
         }
     }
 
@@ -123,14 +123,14 @@ public class Dragon : MonoBehaviour
             {
                 gameManager.GameOver();
                 GameOver();
-                FishDieEffect();
+                DragonDieEffect();
             }
 
         }
         
     }
 
-    void FishDieEffect()
+    void DragonDieEffect()
     {
         hit.Play(); 
     }
