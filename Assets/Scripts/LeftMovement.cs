@@ -46,6 +46,14 @@ public class LeftMovement : MonoBehaviour
                Destroy(gameObject);
             }
         }
+
+            else if (gameObject.CompareTag("Fireball"))
+            {
+                if (transform.position.x < GameManager.bottomLeft.x - obstacleWidth)
+                {
+                    Destroy(gameObject);
+                }
+            }
         }
 
     }
